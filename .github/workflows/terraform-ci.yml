@@ -50,10 +50,11 @@ jobs:
 
       - name: Terraform apply (ephemeral)
         if: github.event_name == 'workflow_dispatch'
+        id: tf_apply
         working-directory: src
         run: terraform apply -auto-approve
 
       - name: Terraform destroy (always)
-        if: always() && github.event_name == 'workflow_dispatch'
+        if: always() && github.event_name == 'workflow_dispatch' && steps.tf_apply.outcome == 'success'
         working-directory: src
         run: terraform destroy -auto-approve
