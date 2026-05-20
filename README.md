@@ -4,7 +4,7 @@ Base mínima del proyecto para el entregable de Terraform en AWS.
 
 ## Integrantes
 
-- Santi
+- Santiago Oliver Surinyach
 - Renato Luzuriaga (@orLuzuriaga)
 - Martí Fabregat Pous (@raati5674)
 - Anyul Rivas (@anyulled)
