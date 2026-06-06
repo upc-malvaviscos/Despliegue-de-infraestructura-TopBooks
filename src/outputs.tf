@@ -1,1 +1,20 @@
 # Outputs will be added as resources are implemented in src/main.tf.
+output "vpc_id" {
+  description = "El ID de la VPC"
+  value       = aws_vpc.main_vpc_topbooks_malvaviscos.id
+}
+
+output "public_subnet_id" {
+  description = "El ID de la subred pública"
+  value       = aws_subnet.public_subnet.id
+}
+
+output "private_subnet_id" {
+  description = "El ID de la subred privada (se expone la primera como referencia principal)"
+  value       = aws_subnet.private_subnet_1.id
+}
+
+output "vpc_endpoint_id" {
+  description = "El ID del VPC Endpoint S3"
+  value       = aws_vpc_endpoint.s3_endpoint_topbooks.id
+}

@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "group_name" {
-  description = "Team name used in mandatory tags."
+  description = "UPC-Malavaviscos"
   type        = string
   default     = "equipo1"
 }
