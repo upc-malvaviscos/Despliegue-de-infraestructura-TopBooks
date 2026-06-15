@@ -18,3 +18,13 @@ output "vpc_endpoint_id" {
   description = "El ID del VPC Endpoint S3"
   value       = aws_vpc_endpoint.s3_endpoint_topbooks.id
 }
+
+output "database_sg_id" {
+  description = "The ID of the database security group"
+  value       = aws_security_group.db_sg.id
+}
+
+output "rds_endpoint" {
+  description = "The connection endpoint for the RDS database"
+  value       = aws_db_instance.mysql_db.endpoint
+}
