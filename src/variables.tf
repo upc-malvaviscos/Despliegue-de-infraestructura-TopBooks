@@ -12,13 +12,13 @@ variable "group_name" {
 
 
 variable "db_user_name" {
-  description = "User name para la instancia RDS MySQL de TopBooks"
+  description = "username for the TopBooks RDS MySQL instance"
   type = string
   sensitive = true
 }
 
 variable "db_password" {
-  description = "Contraseña maestra para la instancia RDS MySQL de TopBooks"
+  description = "password for the TopBooks RDS MySQL instance"
   type        = string
   sensitive   = true
 }

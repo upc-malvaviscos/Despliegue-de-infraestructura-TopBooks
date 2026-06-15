@@ -20,11 +20,11 @@ output "vpc_endpoint_id" {
 }
 
 output "database_sg_id" {
-  description = "El ID del grupo de seguridad de BD"
+  description = "The ID of the database security group"
   value       = aws_security_group.db_sg.id
 }
 
 output "rds_endpoint" {
-  description = "El endpoint de conexión a la BD"
+  description = "The connection endpoint for the RDS database"
   value       = aws_db_instance.mysql_db.endpoint
 }
