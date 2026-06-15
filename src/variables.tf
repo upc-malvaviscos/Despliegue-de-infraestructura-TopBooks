@@ -10,6 +10,20 @@ variable "group_name" {
   default     = "equipo1"
 }
 
+
+variable "db_user_name" {
+  description = "User name para la instancia RDS MySQL de TopBooks"
+  type = string
+  sensitive = true
+}
+
+variable "db_password" {
+  description = "Contraseña maestra para la instancia RDS MySQL de TopBooks"
+  type        = string
+  sensitive   = true
+}
+
+
 locals {
   common_tags = {
     Project     = "topbooks"
