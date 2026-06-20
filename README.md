@@ -1,10 +1,8 @@
 # TopBooks Infra (Equipo 1)
 
-Base mínima del proyecto para el entregable de Terraform en AWS.
-
 ## Integrantes
 
-- Santiago Oliver Surinyach
+- Santiago Oliver Suriñach (@surinyach)
 - Renato Luzuriaga (@orLuzuriaga)
 - Martí Fabregat Pous (@raati5674)
 - Anyul Rivas (@anyulled)
@@ -13,12 +11,19 @@ Base mínima del proyecto para el entregable de Terraform en AWS.
 
 ```text
 .
-├── .github/workflows/terraform-ci.yml
-├── src
+├── .github/
+│   └── workflows/
+│       └── terraform-ci.yml
+├── src/
 │   ├── main.tf
 │   ├── outputs.tf
 │   ├── providers.tf
-│   └── variables.tf
+│   ├── variables.tf
+│   ├── redes.tf
+│   ├── security_group.tf
+│   ├── rds.tf
+│   ├── web_server.tf
+│   └── storage.tf
 └── .gitignore
 ```
 
