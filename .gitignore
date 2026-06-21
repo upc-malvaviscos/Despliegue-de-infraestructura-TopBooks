@@ -2,6 +2,7 @@
 .terraform.lock.hcl
 *.tfstate
 *.tfstate.*
+*.dot
 crash.log
 override.tf
 override.tf.json
