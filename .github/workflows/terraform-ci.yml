@@ -16,6 +16,8 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
       TF_VAR_group_name: ${{ vars.TF_VAR_group_name || 'equipo1' }}
+      TF_VAR_db_user_name: ${{ secrets.DB_USER_NAME }}
+      TF_VAR_db_password: ${{ secrets.DB_PASSWORD }}
 
     steps:
       - name: Checkout

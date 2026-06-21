@@ -1,8 +1,13 @@
-# Grupo de Seguridad para el Servidor Web 
+# Web server security group
 resource "aws_security_group" "web_sg" {
   name        = "topbooks-web-sg"
-  description = "Permitir HTTP y HTTPS desde el exterior"
-  vpc_id      = aws_vpc.main_vpc_topbooks_malvaviscos.id
+  description = "Allow HTTP and HTTPS traffic from the internet"
+  vpc_id      = aws_vpc.main_vpc_topbooks.id
+
+  # AWS security group descriptions are immutable; preserve existing groups during migration.
+  lifecycle {
+    ignore_changes = [description]
+  }
 
   ingress {
     from_port   = 80
@@ -25,20 +30,25 @@ resource "aws_security_group" "web_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(local.tags_obligatorios, { Name = "topbooks-web-sg" })
+  tags = merge(local.common_tags, { Name = "topbooks-web-sg" })
 }
 
-# GRUPO DE SEGURIDAD DE LA BD 
+# Database security group
 resource "aws_security_group" "db_sg" {
   name        = "topbooks-db-sg"
-  description = "Permitir acceso a MySQL solo desde el servidor web"
-  vpc_id      = aws_vpc.main_vpc_topbooks_malvaviscos.id
+  description = "Allow MySQL traffic only from the web server security group"
+  vpc_id      = aws_vpc.main_vpc_topbooks.id
+
+  # AWS security group descriptions are immutable; preserve existing groups during migration.
+  lifecycle {
+    ignore_changes = [description]
+  }
 
   ingress {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.web_sg.id] # estricting traffic exclusively to the Web SG
+    security_groups = [aws_security_group.web_sg.id]
   }
 
   egress {
@@ -48,5 +58,5 @@ resource "aws_security_group" "db_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = merge(local.tags_obligatorios, { Name = "topbooks-db-sg" })
+  tags = merge(local.common_tags, { Name = "topbooks-db-sg" })
 }

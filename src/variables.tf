@@ -5,25 +5,21 @@ variable "aws_region" {
 }
 
 variable "group_name" {
-  description = "UPC-Malavaviscos"
+  description = "Project group name."
   type        = string
   default     = "equipo1"
 }
-
-
 variable "db_user_name" {
-  description = "username for the TopBooks RDS MySQL instance"
+  description = "Username for the TopBooks RDS MySQL instance."
   type        = string
   sensitive   = true
 }
 
 variable "db_password" {
-  description = "password for the TopBooks RDS MySQL instance"
+  description = "Password for the TopBooks RDS MySQL instance."
   type        = string
   sensitive   = true
 }
-
-
 locals {
   common_tags = {
     Project     = "topbooks"

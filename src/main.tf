@@ -1,2 +1,4 @@
-# Base scaffold for the final deliverable resources.
-# Team members will add VPC, subnets, IGW, EC2, RDS, S3 and endpoint here.
+moved {
+  from = aws_route_table.public_rt_topboks
+  to   = aws_route_table.public_route_table
+}
