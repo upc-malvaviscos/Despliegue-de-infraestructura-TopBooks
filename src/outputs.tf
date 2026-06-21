@@ -1,8 +1,6 @@
-# Outputs will be added as resources are implemented in src/main.tf.
-
 output "vpc_id" {
   description = "The ID of the VPC"
-  value       = aws_vpc.main_vpc_topbooks_malvaviscos.id
+  value       = aws_vpc.main_vpc_topbooks.id
 }
 
 output "public_subnet_id" {

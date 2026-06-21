@@ -1,4 +1,3 @@
-# Web Server EC2 Instance
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
 
@@ -22,13 +21,17 @@ resource "aws_instance" "web_server" {
 
   user_data = <<-EOF
     #!/bin/bash
-    amazon-linux-extras install nginx1 -y
-    systemctl enable nginx
-    systemctl start nginx
+    if command -v dnf >/dev/null 2>&1; then
+      dnf install -y nginx
+    else
+      amazon-linux-extras install nginx1 -y
+    fi
+    systemctl enable --now nginx
+    mkdir -p /var/www/html
     echo "TopBooks - $(hostname)" > /usr/share/nginx/html/index.html
     EOF
 
-  tags = merge(local.tags_obligatorios, {
+  tags = merge(local.common_tags, {
     Name = "topbooks-web-server"
   })
 }
